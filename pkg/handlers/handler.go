@@ -1,8 +1,6 @@
 package handlers
 
 import (
-	"ApiApplication/pkg/services"
-
 	"github.com/gin-gonic/gin"
 
 	swaggerfiles "github.com/swaggo/files"
@@ -10,11 +8,10 @@ import (
 )
 
 type Handler struct {
-	services *services.Service
 }
 
-func New(service *services.Service) *Handler {
-	return &Handler{services: service}
+func New() *Handler {
+	return &Handler{}
 }
 
 func (h *Handler) InitRoutes() *gin.Engine {
@@ -24,11 +21,9 @@ func (h *Handler) InitRoutes() *gin.Engine {
 
 	api := router.Group("/api")
 	{
-		users := api.Group("/users")
+		users := api.Group("/commands")
 		{
-			users.GET("/:id", h.getUser)
-			users.GET("/", h.getUsers)
-			users.POST("/add", h.addUser)
+			users.GET("/sissopp", h.sissoppModel)
 		}
 
 	}

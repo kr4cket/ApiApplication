@@ -7,6 +7,8 @@ import (
 
 	swaggerfiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
+
+	_ "ApiApplication/docs"
 )
 
 type Handler struct {
@@ -28,7 +30,21 @@ func (h *Handler) InitRoutes() *gin.Engine {
 		{
 			users.GET("/:id", h.getUser)
 			users.GET("/", h.getUsers)
-			users.POST("/add", h.addUser)
+			users.POST("/", h.createUser)
+		}
+		tasks := api.Group("/tasks")
+		{
+			tasks.POST("/", h.addTask)
+			tasks.GET("/:id", h.getTask)
+			tasks.GET("/", h.getTasks)
+			tasks.DELETE("/:id", h.deleteTask)
+			tasks.PUT("/:id", h.updateTask)
+		}
+		projects := api.Group("/projects")
+		{
+			projects.GET("/:id/tasks", h.getProjectTasksById)
+			projects.POST("/:id/tasks", h.addTaskToProject)
+			projects.GET("/", h.getProjects)
 		}
 
 	}

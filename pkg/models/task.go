@@ -1,12 +1,17 @@
 package models
 
+import (
+	"github.com/google/uuid"
+	"time"
+)
+
 type Task struct {
-	Id          int    `json:"-"`
-	Name        string `json:"name" binding: "required"`
-	Description string `json:"description" binding: "required"`
-	Priority    string `json:"priority" binding: "required"`
-	Status      string `json:"status" binding: "required"`
-	CreatedAt   string `json:"created_at" binding: "required"`
-	CompletedAt string `json:"completed_at" binding: "required"`
-	ProjectId   int    `json:"project_id" binding: "not required"`
+	Id          uuid.UUID `json:"id" binding: "not required"`
+	Name        string    `json:"name" binding: "required"`
+	Description string    `json:"description" binding: "required"`
+	Priority    int       `json:"priority" binding: "required"`
+	Status      int       `json:"status" binding: "required"`
+	CreatedAt   time.Time `json:"created_at" binding: "required"`
+	CompletedAt time.Time `json:"completed_at" binding: "required"`
+	ProjectId   uuid.UUID `json:"project_id" binding: "not required"`
 }

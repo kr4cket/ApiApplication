@@ -25,7 +25,6 @@ func (h *Handler) InitRoutes() *gin.Engine {
 		{
 			users.GET("/sissopp", h.sissoppModel)
 		}
-
 	}
 
 	return router

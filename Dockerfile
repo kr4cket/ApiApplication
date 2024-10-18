@@ -1,4 +1,5 @@
 FROM golang:1.23.0
+
 RUN mkdir /sisso-back
 
 WORKDIR /sisso-back

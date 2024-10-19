@@ -23,7 +23,7 @@ func (h *Handler) InitRoutes() *gin.Engine {
 	{
 		users := api.Group("/commands")
 		{
-			users.GET("/sissopp", h.sissoppModel)
+			users.POST("/sissopp", h.sissoppModel)
 		}
 	}
 

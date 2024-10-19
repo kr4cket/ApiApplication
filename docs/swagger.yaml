@@ -1,0 +1,40 @@
+basePath: /
+definitions:
+  models.ErrorResponse:
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: danielkoreshkov@gmail.com
+    name: Koreshkov Daniil
+  description: Sissop API for creating SISSO model Container
+  title: Sissop API
+  version: "1.0"
+paths:
+  /api/commands/sissop:
+    post:
+      consumes:
+      - application/json
+      description: Создает модель на основе отправленных пользователем данных
+      operationId: create-sissop-model
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: CreateModel
+swagger: "2.0"

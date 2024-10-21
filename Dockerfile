@@ -1,8 +1,8 @@
 FROM golang:1.23.0
 
-RUN mkdir /sisso-back
+RUN mkdir /api
 
-WORKDIR /sisso-back
+WORKDIR /api
 
 COPY ./ ./
 

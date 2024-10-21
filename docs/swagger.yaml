@@ -11,12 +11,12 @@ info:
   title: Sissop API
   version: "1.0"
 paths:
-  /api/commands/sissop:
+  /api/commands/model:
     post:
       consumes:
       - application/json
-      description: Создает модель на основе отправленных пользователем данных
-      operationId: create-sissop-model
+      description: Описание модели
+      operationId: create-smth-model
       produces:
       - application/json
       responses:

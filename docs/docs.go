@@ -18,9 +18,9 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/api/commands/sissop": {
+        "/api/commands/model": {
             "post": {
-                "description": "Создает модель на основе отправленных пользователем данных",
+                "description": "Описание модели",
                 "consumes": [
                     "application/json"
                 ],
@@ -28,7 +28,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "summary": "CreateModel",
-                "operationId": "create-sissop-model",
+                "operationId": "create-smth-model",
                 "responses": {
                     "200": {
                         "description": "OK",
